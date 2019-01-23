@@ -69,6 +69,8 @@ function linkedListGenerator(){
     //     return remove;
     // }
 
+
+    
     let insert = (value, n) => {
         let added = {};
         added.value = value;
@@ -81,14 +83,14 @@ function linkedListGenerator(){
         } else if (get(n) === false){
             return false;
 
+        } else if (get(n) > value.length){
+            return false;
+
         } else {
             added.next = get(n);
             before.next = added;
         }
     };
-
-    
-
 
     return{
         getHead,
@@ -98,9 +100,4 @@ function linkedListGenerator(){
         remove,
         insert
  }
-}
-
-
-// const insert = () =>{};
-
-       
+};
