@@ -9,11 +9,11 @@ function linkedListGenerator(){
 
     let getHead = () => {
         return head;
-    }
+    };
 
     let getTail = () => {
         return tail;
-    }
+    };
 
     let add = (val) => {
        let newNode = {
@@ -33,15 +33,21 @@ function linkedListGenerator(){
         return tail;
     }
 
-    let get = (num) => {
-        let node = head
-    for(let i =0; i <num; i++){
-        if(node.next === null){
-            return false}
-            node = node.next;
+    function get(index) {
+        let currentNode = head;
+    
+        if (index < 0) {
+          return false;
         }
-        return node;
-    } 
+        for (let i = 0; i < index; i++) {
+          if (currentNode.next) {
+            currentNode = currentNode.next;
+          } else {
+            return false;
+          }
+        }
+        return currentNode;
+      }
    
     
 
@@ -57,33 +63,25 @@ function linkedListGenerator(){
             get(num - 1).next = get(num + 1);
         }
     };
-    
-    //     //    let previous = 
-    // //    let next =   
-    // // console.log(num)
-    // // console.log("head", head)
-    // deleteMe = get(num)
-    // // console.log(deleteMe)
-    // previous = get(num)
-    // console.log(previous)
-    //     return remove;
-    // }
 
 
     
     let insert = (value, n) => {
+        debugger;
         let added = {};
-        added.value = value;
         let before = get(n - 1);
+        added.value = value;
+        // console.log(value, value.length)
 
         if (n === 0) {
             added.next = head;
             head = added;
 
-        } else if (get(n) === false){
+        } else if (get(n) === false ){
             return false;
 
-        } else if (get(n) > value.length){
+        } else if (get(n) > added){ 
+            console.log('test')
             return false;
 
         } else {
